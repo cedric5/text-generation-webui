@@ -331,7 +331,7 @@ def install_extensions_requirements():
         run_cmd(f"python -m pip install -r {extension_req_path} --upgrade", assert_success=False, environment=True)
 
 
-def update_requirements(initial_installation=False, pull=True):
+def update_requirements(initial_installation=False, pull=False):
     # Create .git directory if missing
     if not os.path.exists(os.path.join(script_dir, ".git")):
         git_creation_cmd = 'git init -b main && git remote add origin https://github.com/oobabooga/text-generation-webui && git fetch && git symbolic-ref refs/remotes/origin/HEAD refs/remotes/origin/main && git reset --hard origin/main && git branch --set-upstream-to=origin/main'
